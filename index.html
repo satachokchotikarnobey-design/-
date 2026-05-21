@@ -81,7 +81,7 @@ padding:20px;
 width:95%;
 max-width:420px;
 margin:30px auto;
-background:rgba(255,255,255,.05);
+background6:rgba(255,255,255,.05);
 backdrop-filter:blur(12px);
 border:1px solid #00d9ff55;
 border-radius:20px;
@@ -190,144 +190,15 @@ oninput="dpi.innerText=this.value">
 เริ่มระบบ
 </button>
 
-</div>
-<script>
-
-/* โหลดเสร็จเข้า Panel */
-setTimeout(()=>{
-
-document.getElementById("โหลด").style.display="none";
-document.getElementById("panel").style.display="block";
-
-},3000);
-
-
-/* สร้างเสียงกด */
-function เสียง(){
-
-const audio = new Audio(
-"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEA"
-);
-
-audio.volume=0.2;
-
-}
-
-
-/* ปุ่มเริ่มระบบ */
-
-function เริ่มระบบ(){
-
-เสียง();
-
-const status =
-document.getElementById("สถานะ");
-
-status.innerHTML=
-"สถานะ: ONLINE";
-
-status.style.color="#00ff99";
-status.style.textShadow=
-"0 0 15px #00ff99";
-
-
-/* เอฟเฟกต์แสง */
-
-document.body.animate([
-
-{
-boxShadow:
-"0 0 0px #00d9ff"
-},
-
-{
-boxShadow:
-"0 0 90px #00d9ff"
-},
-
-{
-boxShadow:
-"0 0 0px #00d9ff"
-}
-
-],{
-
-duration:800
-
-});
-
-}
-
-
-/* นาฬิกา */
-
-const clock =
-document.createElement("div");
-
-clock.style.position="fixed";
-clock.style.top="10px";
-clock.style.right="15px";
-clock.style.color="#00d9ff";
-clock.style.fontSize="14px";
-
-document.body.appendChild(clock);
-
-setInterval(()=>{
-
-const d=new Date();
-
-clock.innerHTML=
-"เวลา: "
-+d.toLocaleTimeString(
-"th-TH"
-);
-
-},1000);
-
-
-
-/* เอฟเฟกต์เมาส์ */
-
-document.addEventListener(
-"mousemove",
-
-e=>{
-
-const dot=
-document.createElement("div");
-
-dot.style.position="fixed";
-dot.style.left=e.clientX+"px";
-dot.style.top=e.clientY+"px";
-
-dot.style.width="5px";
-dot.style.height="5px";
-
-dot.style.borderRadius="50%";
-
-dot.style.background=
-"#00d9ff";
-
-dot.style.boxShadow=
-"0 0 15px #00d9ff";
-
-document.body.appendChild(dot);
-
-setTimeout(
-()=>dot.remove(),
-300
-);
-
-});
-/* ===== V2 FULL ADDON ===== */
+</div><script>
 
 /* นาฬิกา */
 
 const clock=document.createElement("div");
 
 clock.style.textAlign="center";
-clock.style.marginTop="12px";
 clock.style.color="#00d9ff";
+clock.style.marginTop="12px";
 
 document.getElementById("panel")
 .appendChild(clock);
@@ -341,126 +212,7 @@ new Date().toLocaleTimeString('th-TH');
 },1000);
 
 
-/* สถานะอุปกรณ์ */
-
-const device=document.createElement("div");
-
-device.style.textAlign="center";
-
-device.innerHTML=
-"📱 อุปกรณ์: "+
-navigator.platform;
-
-document.getElementById("panel")
-.appendChild(device);
-
-
-/* Toggle + ระบบเพิ่ม */
-
-const systems=document.createElement("div");
-
-systems.innerHTML=`
-
-</script>
-
-<div class="card">
-<label>🎯 ล็อคหัว</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-<div class="card">
-<label>🧲 ดูดหัว</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-<div class="card">
-<label>🔊 เอฟเฟกต์เสียง</label>
-<button onclick="toggle(this)">OFF</bu
-                                    
-
-<div class="card">
-<label>🎯 ล็อคหัว</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-<div class="card">
-<label>🧲 ดูดหัว</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-<div class="card">
-<label>🔊 เอฟเฟกต์เสียง</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-`;
-
-document.getElementById("panel")
-.appendChild(systems);
-
-
-/* Toggle Function */
-
-function toggle(btn){
-
-if(btn.innerText==="OFF"){
-
-btn.innerText="ON";
-
-btn.style.background="#00ff88";
-
-}else{
-
-btn.innerText="OFF";
-
-btn.style.background="#00d9ff";
-
-}
-
-}
-}
-
-}
-</body>
-</html>
-<script>
-/* ===== V2 FULL ADDON ===== */
-
-/* นาฬิกา */
-
-const clock=document.createElement("div");
-
-clock.style.textAlign="center";
-clock.style.marginTop="12px";
-clock.style.color="#00d9ff";
-
-document.getElementById("panel")
-.appendChild(clock);
-
-setInterval(()=>{
-
-clock.innerHTML=
-"🕒 เวลา: "+
-new Date().toLocaleTimeString('th-TH');
-
-},1000);
-
-
-/* สถานะอุปกรณ์ */
-
-const device=document.createElement("div");
-
-device.style.textAlign="center";
-
-device.innerHTML=
-"📱 อุปกรณ์: "+
-navigator.platform;
-
-document.getElementById("panel")
-.appendChild(device);
-
-
-/* Toggle + ระบบเพิ่ม */
+/* Toggle */
 
 const systems=document.createElement("div");
 
@@ -476,184 +228,37 @@ systems.innerHTML=`
 <button onclick="toggle(this)">OFF</button>
 </div>
 
-<div class="card">
-<label>🔊 เอฟเฟกต์เสียง</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
 `;
 
 document.getElementById("panel")
 .appendChild(systems);
 
 
-/* Toggle Function */
-
 function toggle(btn){
 
 if(btn.innerText==="OFF"){
 
 btn.innerText="ON";
-
 btn.style.background="#00ff88";
 
 }else{
 
 btn.innerText="OFF";
-
 btn.style.background="#00d9ff";
 
 }
 
 }
-/* โหลดเสร็จเข้าพาเนล */
-setTimeout(()=>{
 
-document.getElementById("โหลด").style.display="none";
-document.getElementById("panel").style.display="block";
-
-},3000);
-
-/* เสียงกด */
-const เสียง=new Audio(
-"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEA"
-);
 
 /* เริ่มระบบ */
-function เริ่มระบบ(){
-
-try{เสียง.play();}catch(e){}
-
-let สถานะ=document.getElementById("สถานะ");
-
-สถานะ.innerHTML=
-"สถานะ: <span style='color:#00ff88'>ONLINE</span>";
-
-/* เอฟเฟกต์แสง */
-document.body.animate([
-
-{filter:"brightness(1)"},
-
-{filter:"brightness(2)"},
-
-{filter:"brightness(1)"}
-
-],{
-
-duration:500
-
-});
-
-}
-
-/* นาฬิกา */
-
-let เวลา=document.createElement("div");
-
-เวลา.style.textAlign="center";
-เวลา.style.marginTop="12px";
-เวลา.style.fontSize="18px";
-
-document.getElementById("panel")
-.appendChild(เวลา);
-
-setInterval(()=>{
-
-let t=new Date();
-
-เวลา.innerHTML=
-"เวลา: "+
-t.toLocaleTimeString('th-TH');
-
-},1000);
-/* ===== ZAZA V2 FULL ADDON ===== *\
-
-/* นาฬิกา */
-
-const clock=document.createElement("div");
-
-clock.style.textAlign="center";
-clock.style.marginTop="12px";
-clock.style.fontSize="18px";
-clock.style.color="#00d9ff";
-
-document.getElementById("panel")
-.appendChild(clock);
-
-setInterval(()=>{
-
-clock.innerHTML=
-"🕒 เวลา: " +
-new Date().toLocaleTimeString('th-TH');
-
-},1000);
-
-
-/* สถานะอุปกรณ์ */
-
-const device=document.createElement("div");
-
-device.style.textAlign="center";
-device.style.marginTop="10px";
-
-device.innerHTML=
-"📱 อุปกรณ์: "+
-navigator.platform;
-
-document.getElementById("panel")
-.appendChild(device);
-
-
-/* ระบบ UI */
-
-const systems=document.createElement("div");
-
-systems.innerHTML=`
-</script>
-
-</body>
-</html>
-
-
-
-<div class="card">
-<label>🎯 ล็อคหัว</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-<div class="card">
-<label>🧲 ดูดหัว</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-<div class="card">
-<label>🔊 เอฟเฟกต์เสียง</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-<div class="card">
-<label>⚙️ โหมดแสดงผล</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-<div class="card">
-<label>🚀 เปิดระบบ</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-`;
-
-do
-
-
-/* สถานะระบบ */
 
 function เริ่มระบบ(){
 
-let status=
-document.getElementById("สถานะ");
-
-status.innerHTML=
-"สถานะ: <span style='color:#00ff88'>ONLINE</span>";
+document.getElementById("สถานะ")
+.innerHTML=
+"สถานะ: ONLINE";
 
 }
+
+</script
