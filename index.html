@@ -319,8 +319,6 @@ setTimeout(
 );
 
 });
-
-</script>
 /* ===== V2 FULL ADDON ===== */
 
 /* นาฬิกา */
@@ -363,6 +361,8 @@ const systems=document.createElement("div");
 
 systems.innerHTML=`
 
+</script>
+
 <div class="card">
 <label>🎯 ล็อคหัว</label>
 <button onclick="toggle(this)">OFF</button>
@@ -376,47 +376,7 @@ systems.innerHTML=`
 <div class="card">
 <label>🔊 เอฟเฟกต์เสียง</label>
 <button onclick="toggle(this)">OFF</bu
-                                    /* ===== V2 FULL ADDON ===== */
-
-/* นาฬิกา */
-
-const clock=document.createElement("div");
-
-clock.style.textAlign="center";
-clock.style.marginTop="12px";
-clock.style.color="#00d9ff";
-
-document.getElementById("panel")
-.appendChild(clock);
-
-setInterval(()=>{
-
-clock.innerHTML=
-"🕒 เวลา: "+
-new Date().toLocaleTimeString('th-TH');
-
-},1000);
-
-
-/* สถานะอุปกรณ์ */
-
-const device=document.createElement("div");
-
-device.style.textAlign="center";
-
-device.innerHTML=
-"📱 อุปกรณ์: "+
-navigator.platform;
-
-document.getElementById("panel")
-.appendChild(device);
-
-
-/* Toggle + ระบบเพิ่ม */
-
-const systems=document.createElement("div");
-
-systems.innerHTML=`
+                                    
 
 <div class="card">
 <label>🎯 ล็อคหัว</label>
@@ -606,12 +566,7 @@ let t=new Date();
 t.toLocaleTimeString('th-TH');
 
 },1000);
-
-</script>
-
-</body>
-</html>
-/* ===== ZAZA V2 FULL ADDON ===== */
+/* ===== ZAZA V2 FULL ADDON ===== *\
 
 /* นาฬิกา */
 
@@ -654,6 +609,12 @@ document.getElementById("panel")
 const systems=document.createElement("div");
 
 systems.innerHTML=`
+</script>
+
+</body>
+</html>
+
+
 
 <div class="card">
 <label>🎯 ล็อคหัว</label>
@@ -682,57 +643,7 @@ systems.innerHTML=`
 
 `;
 
-document.getElementById("panel")
-.appendChild(systems);
-
-
-/* Toggle */
-
-function toggle(btn){
-
-if(btn.innerText==="OFF"){
-
-btn.innerText="ON";
-
-btn.style.background="#00ff88";
-
-btn.style.color="#000";
-
-}else{
-
-btn.innerText="OFF";
-
-btn.style.background="#00d9ff";
-
-btn.style.color="#000";
-
-}
-
-}
-
-
-/* Start Effect */
-
-const startBtn=
-document.querySelector("button");
-
-startBtn.addEventListener("click",()=>{
-
-document.body.animate([
-
-{filter:"brightness(1)"},
-
-{filter:"brightness(2)"},
-
-{filter:"brightness(1)"}
-
-],{
-
-duration:500
-
-});
-
-});
+do
 
 
 /* สถานะระบบ */
