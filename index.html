@@ -391,3 +391,138 @@ t.toLocaleTimeString('th-TH');
 
 </body>
 </html>
+/* ===== ZAZA V2 FULL ADDON ===== */
+
+/* นาฬิกา */
+
+const clock=document.createElement("div");
+
+clock.style.textAlign="center";
+clock.style.marginTop="12px";
+clock.style.fontSize="18px";
+clock.style.color="#00d9ff";
+
+document.getElementById("panel")
+.appendChild(clock);
+
+setInterval(()=>{
+
+clock.innerHTML=
+"🕒 เวลา: " +
+new Date().toLocaleTimeString('th-TH');
+
+},1000);
+
+
+/* สถานะอุปกรณ์ */
+
+const device=document.createElement("div");
+
+device.style.textAlign="center";
+device.style.marginTop="10px";
+
+device.innerHTML=
+"📱 อุปกรณ์: "+
+navigator.platform;
+
+document.getElementById("panel")
+.appendChild(device);
+
+
+/* ระบบ UI */
+
+const systems=document.createElement("div");
+
+systems.innerHTML=`
+
+<div class="card">
+<label>🎯 ล็อคหัว</label>
+<button onclick="toggle(this)">OFF</button>
+</div>
+
+<div class="card">
+<label>🧲 ดูดหัว</label>
+<button onclick="toggle(this)">OFF</button>
+</div>
+
+<div class="card">
+<label>🔊 เอฟเฟกต์เสียง</label>
+<button onclick="toggle(this)">OFF</button>
+</div>
+
+<div class="card">
+<label>⚙️ โหมดแสดงผล</label>
+<button onclick="toggle(this)">OFF</button>
+</div>
+
+<div class="card">
+<label>🚀 เปิดระบบ</label>
+<button onclick="toggle(this)">OFF</button>
+</div>
+
+`;
+
+document.getElementById("panel")
+.appendChild(systems);
+
+
+/* Toggle */
+
+function toggle(btn){
+
+if(btn.innerText==="OFF"){
+
+btn.innerText="ON";
+
+btn.style.background="#00ff88";
+
+btn.style.color="#000";
+
+}else{
+
+btn.innerText="OFF";
+
+btn.style.background="#00d9ff";
+
+btn.style.color="#000";
+
+}
+
+}
+
+
+/* Start Effect */
+
+const startBtn=
+document.querySelector("button");
+
+startBtn.addEventListener("click",()=>{
+
+document.body.animate([
+
+{filter:"brightness(1)"},
+
+{filter:"brightness(2)"},
+
+{filter:"brightness(1)"}
+
+],{
+
+duration:500
+
+});
+
+});
+
+
+/* สถานะระบบ */
+
+function เริ่มระบบ(){
+
+let status=
+document.getElementById("สถานะ");
+
+status.innerHTML=
+"สถานะ: <span style='color:#00ff88'>ONLINE</span>";
+
+}
