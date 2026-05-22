@@ -251,5 +251,138 @@ document.getElementById("สถานะ")
 "สถานะ: ONLINE";
 
 }
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ZAZA PANEL UI</title>
 
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0a0a0a;
+    color: #00ffcc;
+}
+
+/* layout */
+.container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    height: 100vh;
+}
+
+/* sidebar */
+.sidebar {
+    background: #111;
+    border-right: 1px solid #00ffcc;
+    padding: 15px;
+}
+
+.logo {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ffcc;
+}
+
+/* main */
+.main {
+    padding: 20px;
+}
+
+/* card */
+.card {
+    background: #111;
+    border: 1px solid #00ffcc;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* fake button */
+.btn {
+    display: inline-block;
+    padding: 10px 12px;
+    margin: 5px 0;
+    background: #00ffcc;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* slider UI only */
+.slider {
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* fake crosshair box */
+.preview {
+    width: 100%;
+    height: 250px;
+    border: 1px dashed #00ffcc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ffcc55;
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo">ZAZA PANEL</div>
+
+        <div class="btn">Dashboard</div>
+        <div class="btn">Aim Settings</div>
+        <div class="btn">Sensitivity</div>
+        <div class="btn">Crosshair</div>
+        <div class="btn">Profile</div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <div class="card">
+            <h2>AIM SETTINGS (UI ONLY)</h2>
+            <label>DPI</label><br>
+            <input class="slider" type="range" min="100" max="3200"><br><br>
+
+            <label>SENSITIVITY</label><br>
+            <input class="slider" type="range" min="0" max="100"><br><br>
+
+            <label>ADS SENS</label><br>
+            <input class="slider" type="range" min="0" max="100">
+        </div>
+
+        <div class="card">
+            <h2>CROSSHAIR PREVIEW</h2>
+            <div class="preview">
+                CROSSHAIR PREVIEW BOX
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>CONTROL PANEL</h2>
+            <div class="btn">APPLY</div>
+            <div class="btn">RESET</div>
+            <div class="btn">SAVE PROFILE</div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
 </script
