@@ -2,387 +2,156 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZAZA PANEL (ADMIN ONLY)</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#050816;
-color:#00d9ff;
-overflow:hidden;
-}
-
-/* พื้นหลัง */
-body::before{
-content:"";
-position:fixed;
-inset:0;
-background:
-linear-gradient(#00d9ff11 1px,transparent 1px),
-linear-gradient(90deg,#00d9ff11 1px,transparent 1px);
-background-size:35px 35px;
-animation:bg 8s linear infinite;
-pointer-events:none;
-}
-
-@keyframes bg{
-from{transform:translateY(0);}
-to{transform:translateY(35px);}
-}
-
-/* หน้าโหลด */
-#โหลด{
-position:fixed;
-inset:0;
-background:#050816;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:999;
-}
-
-#โหลด h1{
-font-size:34px;
-text-shadow:0 0 20px #00d9ff;
-}
-
-.bar{
-width:280px;
-height:10px;
-border:1px solid #00d9ff;
-margin-top:20px;
-border-radius:20px;
-overflow:hidden;
-}
-
-.fill{
-height:100%;
-width:0%;
-background:#00d9ff;
-animation:load 3s linear forwards;
-}
-
-@keyframes load{
-to{width:100%;}
-}
-
-/* Panel */
-.panel{
-display:none;
-padding:20px;
-width:95%;
-max-width:420px;
-margin:30px auto;
-background6:rgba(255,255,255,.05);
-backdrop-filter:blur(12px);
-border:1px solid #00d9ff55;
-border-radius:20px;
-box-shadow:0 0 30px #00d9ff33;
-}
-
-.title{
-text-align:center;
-font-size:28px;
-margin-bottom:15px;
-text-shadow:0 0 15px #00d9ff;
-}
-
-.card{
-background:#ffffff10;
-padding:12px;
-margin:10px 0;
-border-radius:14px;
-}
-
-label{
-display:block;
-margin-bottom:8px;
-}
-
-select,input[type=range]{
-width:100%;
-padding:10px;
-border:none;
-border-radius:10px;
-background:#0d1a2d;
-color:#00d9ff;
-}
-
-.status{
-text-align:center;
-font-size:18px;
-margin-top:15px;
-}
-
-button{
-width:100%;
-padding:14px;
-margin-top:15px;
-background:#00d9ff;
-color:#000;
-font-weight:bold;
-border:none;
-border-radius:12px;
-cursor:pointer;
-box-shadow:0 0 20px #00d9ff;
-}
-</style>
-</head>
-
-<body>
-
-<div id="โหลด
-
-<div class="panel" id="panel">
-
-<div class="title">
-ZAZA PANEL (ADMIN ONLY)
-</div>
-
-<div class="card">
-<label>เลือกระบบ</label>
-<select>
-<option>Android</option>
-<option>iOS</option>
-</select>
-</div>
-
-<div class="card">
-<label>เลือกเวอร์ชัน</label>
-<select>
-<option>Free Fire</option>
-<option>Free Fire MAX</option>
-</select>
-</div>
-
-<div class="card">
-<label>DPI: <span id="dpi">800</span></label>
-
-<input type="range"
-min="200"
-max="2000"
-value="800"
-oninput="dpi.innerText=this.value">
-</div>
-
-<div class="status" id="สถานะ">
-สถานะ: OFFLINE
-</div>
-
-<button onclick="เริ่มระบบ()">
-เริ่มระบบ
-</button>
-
-</div><script>
-
-/* นาฬิกา */
-
-const clock=document.createElement("div");
-
-clock.style.textAlign="center";
-clock.style.color="#00d9ff";
-clock.style.marginTop="12px";
-
-document.getElementById("panel")
-.appendChild(clock);
-
-setInterval(()=>{
-
-clock.innerHTML=
-"🕒 เวลา: "+
-new Date().toLocaleTimeString('th-TH');
-
-},1000);
-
-
-/* Toggle */
-
-const systems=document.createElement("div");
-
-systems.innerHTML=`
-
-<div class="card">
-<label>🎯 ล็อคหัว</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-<div class="card">
-<label>🧲 ดูดหัว</label>
-<button onclick="toggle(this)">OFF</button>
-</div>
-
-`;
-
-document.getElementById("panel")
-.appendChild(systems);
-
-
-function toggle(btn){
-
-if(btn.innerText==="OFF"){
-
-btn.innerText="ON";
-btn.style.background="#00ff88";
-
-}else{
-
-btn.innerText="OFF";
-btn.style.background="#00d9ff";
-
-}
-
-}
-
-
-/* เริ่มระบบ */
-
-function เริ่มระบบ(){
-
-document.getElementById("สถานะ")
-.innerHTML=
-"สถานะ: ONLINE";
-
-}
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<title>ZAZA PANEL UI</title>
+<title>ZAZA CYBER PANEL</title>
 
 <style>
 body {
     margin: 0;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
     font-family: Arial;
-    background: #0a0a0a;
     color: #00ffcc;
 }
 
-/* layout */
-.container {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    height: 100vh;
+/* ===== CYBER BACKGROUND ===== */
+.line {
+    position: absolute;
+    width: 2px;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, #00ffcc, transparent);
+    animation: move 3s linear infinite;
+    opacity: 0.5;
 }
 
-/* sidebar */
-.sidebar {
-    background: #111;
-    border-right: 1px solid #00ffcc;
+@keyframes move {
+    0% { transform: translateY(-200px); }
+    100% { transform: translateY(100vh); }
+}
+
+.orb {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #00ffcc;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00ffcc;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); opacity: 0.3; }
+    50% { transform: translateY(-80px); opacity: 1; }
+    100% { transform: translateY(0px); opacity: 0.3; }
+}
+
+/* ===== CENTER GLOW ===== */
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 220px;
+    height: 220px;
+    transform: translate(-50%, -50%);
+    border: 2px solid #00ffcc;
+    border-radius: 50%;
+    box-shadow: 0 0 40px #00ffcc;
+    animation: pulse 2s infinite;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.15); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ===== PANEL ===== */
+.panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    background: rgba(17,17,17,0.9);
+    border: 1px solid #00ffcc;
+    border-radius: 12px;
     padding: 15px;
+    z-index: 2;
+    backdrop-filter: blur(8px);
 }
 
-.logo {
-    font-size: 20px;
-    margin-bottom: 20px;
+.title {
+    font-size: 18px;
+    margin-bottom: 10px;
     text-shadow: 0 0 10px #00ffcc;
 }
 
-/* main */
-.main {
-    padding: 20px;
-}
-
-/* card */
-.card {
-    background: #111;
+.row {
+    display: flex;
+    justify-content: space-between;
     border: 1px solid #00ffcc;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 6px;
 }
 
-/* fake button */
-.btn {
-    display: inline-block;
-    padding: 10px 12px;
-    margin: 5px 0;
+.badge {
     background: #00ffcc;
     color: #000;
-    font-weight: bold;
+    padding: 2px 8px;
     border-radius: 5px;
-    cursor: pointer;
+    font-size: 12px;
 }
 
-/* slider UI only */
 .slider {
     width: 100%;
-}
-
-label {
-    font-size: 14px;
-    opacity: 0.8;
-}
-
-/* fake crosshair box */
-.preview {
-    width: 100%;
-    height: 250px;
-    border: 1px dashed #00ffcc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #00ffcc55;
-    border-radius: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="center"></div>
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <div class="logo">ZAZA PANEL</div>
+<div class="panel">
+    <div class="title">ZAZA CONTROL CORE</div>
 
-        <div class="btn">Dashboard</div>
-        <div class="btn">Aim Settings</div>
-        <div class="btn">Sensitivity</div>
-        <div class="btn">Crosshair</div>
-        <div class="btn">Profile</div>
+    <div class="row">
+        🧲 ดูดเป้า
+        <span class="badge">ACTIVE</span>
     </div>
 
-    <!-- MAIN -->
-    <div class="main">
-
-        <div class="card">
-            <h2>AIM SETTINGS (UI ONLY)</h2>
-            <label>DPI</label><br>
-            <input class="slider" type="range" min="100" max="3200"><br><br>
-
-            <label>SENSITIVITY</label><br>
-            <input class="slider" type="range" min="0" max="100"><br><br>
-
-            <label>ADS SENS</label><br>
-            <input class="slider" type="range" min="0" max="100">
-        </div>
-
-        <div class="card">
-            <h2>CROSSHAIR PREVIEW</h2>
-            <div class="preview">
-                CROSSHAIR PREVIEW BOX
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>CONTROL PANEL</h2>
-            <div class="btn">APPLY</div>
-            <div class="btn">RESET</div>
-            <div class="btn">SAVE PROFILE</div>
-        </div>
-
+    <div class="row">
+        🎯 ล็อคเป้า
+        <span class="badge">ACTIVE</span>
     </div>
 
+    <label>DPI</label>
+    <input class="slider" type="range" min="100" max="3200"><br><br>
+
+    <label>SENSITIVITY</label>
+    <input class="slider" type="range" min="0" max="100">
 </div>
+
+<script>
+for (let i = 0; i < 25; i++) {
+    let line = document.createElement("div");
+    line.className = "line";
+    line.style.left = Math.random() * window.innerWidth + "px";
+    line.style.animationDuration = (2 + Math.random() * 3) + "s";
+    document.body.appendChild(line);
+}
+
+for (let i = 0; i < 15; i++) {
+    let orb = document.createElement("div");
+    orb.className = "orb";
+    orb.style.left = Math.random() * window.innerWidth + "px";
+    orb.style.top = Math.random() * window.innerHeight + "px";
+    orb.style.animationDuration = (2 + Math.random() * 3) + "s";
+    document.body.appendChild(orb);
+}
+</script>
 
 </body>
 </html>
-</script
